@@ -55,6 +55,18 @@ export const projects = [
     summary:
       'Explored charcoal, biochar, and biogas pathways as means of biomass energy production from forestry and agricultural residues.',
   },
+  {
+    title: 'Bee Keeping',
+    dates: 'Jul 2026 – Sept 2026',
+    summary:
+      'Practised beekeeping as a field-based livelihood and forest-adjacent enterprise, from hive management through to honey production.',
+  },
+  {
+    title: 'Grasscutter Rearing',
+    dates: 'Jul 2026 – Sept 2026',
+    summary:
+      'Reared grasscutters as a small-scale livestock enterprise linked to sustainable rural livelihoods and natural resource use.',
+  },
 ]
 
 export const education = [
@@ -80,9 +92,9 @@ export const certification = {
 export const leadership = [
   {
     title: 'Survey Team Lead',
-    context: 'Tinte Bepo Forest Reserve',
+    context: 'Tinte Bepo Forest Reserve · Brosankro',
     detail:
-      'Led a group through communities surrounding the Tinte Bepo Forest Reserve for an academic survey on livelihood.',
+      'Led a group through areas surrounding the Tinte Bepo forest area, specifically Brosankro, for an academic survey on livelihood.',
   },
   {
     title: 'President, Sunday School Body',
@@ -93,7 +105,7 @@ export const leadership = [
 ]
 
 export const skills = {
-  proficient: ['Microsoft Excel'],
+  proficient: ['Microsoft Excel', 'SPSS'],
   beginner: ['ArcMap', 'QGIS', 'R Studio', 'Google Earth Pro'],
   strengths: [
     'Analytical thinking',
