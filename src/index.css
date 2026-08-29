@@ -179,6 +179,11 @@ p {
   color: var(--forest);
 }
 
+.nav__link.is-active {
+  color: var(--forest);
+  font-weight: 650;
+}
+
 .nav__cta {
   display: none;
   padding: 0.55rem 1.1rem;
@@ -838,6 +843,105 @@ p {
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--forest);
+}
+
+/* ——— Resume page ——— */
+.resume-page {
+  padding-top: 5.5rem;
+  padding-bottom: var(--section);
+}
+
+.resume-page__intro {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.resume-page__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--forest);
+  letter-spacing: -0.03em;
+}
+
+.resume-page__lead {
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  max-width: 42ch;
+}
+
+.resume-page__card-wrap {
+  margin-top: 0.5rem;
+}
+
+.resume-card {
+  border-radius: calc(var(--radius-md) + 10px);
+  overflow: hidden;
+  border: 1px solid rgba(18, 54, 40, 0.22);
+  background: #0f2219;
+  box-shadow:
+    0 28px 60px rgba(8, 22, 16, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.resume-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.35rem 1.5rem;
+  background: linear-gradient(180deg, #142a20 0%, #0f2219 100%);
+  border-bottom: 1px solid rgba(232, 240, 230, 0.1);
+}
+
+.resume-card__identity h2 {
+  font-size: 1.35rem;
+  color: #f4f8f3;
+  letter-spacing: -0.02em;
+}
+
+.resume-card__identity p {
+  margin-top: 0.2rem;
+  color: rgba(196, 220, 201, 0.78);
+  font-size: 0.98rem;
+}
+
+.btn--resume-download {
+  background: #8fd4b0;
+  color: #0a2419;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.btn--resume-download:hover {
+  background: #b8e8cc;
+}
+
+.resume-card__viewer {
+  background: #1a2e24;
+  line-height: 0;
+}
+
+.resume-card__viewer iframe {
+  width: 100%;
+  height: min(78vh, 920px);
+  border: none;
+  display: block;
+  background: #ece8e0;
+}
+
+@media (max-width: 640px) {
+  .resume-card__header {
+    padding: 1.15rem 1.15rem;
+  }
+
+  .resume-card__viewer iframe {
+    height: min(68vh, 720px);
+  }
 }
 
 /* ——— Reveal on scroll ——— */

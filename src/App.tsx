@@ -1,25 +1,18 @@
-import { About } from './components/About'
-import { Contact } from './components/Contact'
-import { Credentials } from './components/Credentials'
-import { Experience } from './components/Experience'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Footer } from './components/Footer'
-import { Hero } from './components/Hero'
 import { Nav } from './components/Nav'
-import { Projects } from './components/Projects'
+import { HomePage } from './pages/HomePage'
+import { ResumePage } from './pages/ResumePage'
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <Nav />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Credentials />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/resume" element={<ResumePage />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }

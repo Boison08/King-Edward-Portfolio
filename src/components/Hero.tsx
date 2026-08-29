@@ -22,8 +22,8 @@ export function Hero() {
           <a className="btn btn--solid" href="#projects">
             View work
           </a>
-          <a className="btn btn--ghost" href="#contact">
-            Contact
+          <a className="btn btn--ghost" href="/resume">
+            View resume
           </a>
         </div>
       </div>

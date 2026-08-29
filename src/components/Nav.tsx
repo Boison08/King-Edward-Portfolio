@@ -1,20 +1,27 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { navLinks, profile } from '../data/content'
 
 export function Nav() {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
   const [scrolled, setScrolled] = useState(false)
-  const [overHero, setOverHero] = useState(true)
+  const [overHero, setOverHero] = useState(isHome)
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname])
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24)
-      setOverHero(window.scrollY < window.innerHeight * 0.72)
+      setOverHero(isHome && window.scrollY < window.innerHeight * 0.72)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [isHome])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -25,28 +32,44 @@ export function Nav() {
 
   const close = () => setOpen(false)
 
+  const sectionHref = (href: string) => (isHome ? href : `/${href}`)
+
+  const navClass = [
+    'nav',
+    scrolled || !isHome ? ' is-scrolled' : '',
+    overHero ? ' is-over-hero' : '',
+  ].join('')
+
   return (
-    <header
-      className={`nav${scrolled ? ' is-scrolled' : ''}${overHero ? ' is-over-hero' : ''}`}
-    >
+    <header className={navClass}>
       <div className="container nav__inner">
-        <a className="nav__brand" href="#top" onClick={close}>
+        <Link className="nav__brand" to="/" onClick={close}>
           {profile.brand}
-        </a>
+        </Link>
 
         <nav aria-label="Primary">
           <ul className="nav__links">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a className="nav__link" href={link.href}>
-                  {link.label}
-                </a>
+                {link.route ? (
+                  <Link
+                    className={`nav__link${location.pathname === link.href ? ' is-active' : ''}`}
+                    to={link.href}
+                    onClick={close}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a className="nav__link" href={sectionHref(link.href)} onClick={close}>
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
         </nav>
 
-        <a className="nav__cta" href="#contact">
+        <a className="nav__cta" href={sectionHref('#contact')} onClick={close}>
           Get in touch
         </a>
 
@@ -66,12 +89,18 @@ export function Nav() {
         id="mobile-nav"
         className={`container nav__drawer${open ? ' is-open' : ''}`}
       >
-        {navLinks.map((link) => (
-          <a key={link.href} href={link.href} onClick={close}>
-            {link.label}
-          </a>
-        ))}
-        <a href="#contact" onClick={close}>
+        {navLinks.map((link) =>
+          link.route ? (
+            <Link key={link.href} to={link.href} onClick={close}>
+              {link.label}
+            </Link>
+          ) : (
+            <a key={link.href} href={sectionHref(link.href)} onClick={close}>
+              {link.label}
+            </a>
+          ),
+        )}
+        <a href={sectionHref('#contact')} onClick={close}>
           Get in touch
         </a>
       </div>

@@ -120,5 +120,8 @@ export const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
+  { href: '/resume', label: 'Resume', route: true },
   { href: '#contact', label: 'Contact' },
 ]
+
+export const resumePdf = '/Resume_Edward_King.pdf'
