@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forest Tech | Resources Technology Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary-container": "#1b4332",
+                            "tertiary-fixed": "#ffdad8",
+                            "secondary-container": "#fec6a3",
+                            "on-surface-variant": "#414844",
+                            "on-secondary-fixed-variant": "#643e24",
+                            "on-secondary-fixed": "#301401",
+                            "inverse-primary": "#a5d0b9",
+                            "error": "#ba1a1a",
+                            "tertiary-container": "#5a302f",
+                            "outline": "#717973",
+                            "secondary-fixed": "#ffdcc7",
+                            "on-primary-fixed": "#002114",
+                            "on-background": "#1a1c1a",
+                            "surface": "#f9faf6",
+                            "surface-dim": "#dadad7",
+                            "surface-container-lowest": "#ffffff",
+                            "on-error-container": "#93000a",
+                            "on-tertiary-fixed": "#331111",
+                            "on-primary-fixed-variant": "#274e3d",
+                            "error-container": "#ffdad6",
+                            "on-tertiary": "#ffffff",
+                            "inverse-on-surface": "#f0f1ee",
+                            "on-primary-container": "#86af99",
+                            "secondary": "#7f5539",
+                            "surface-container-high": "#e8e8e5",
+                            "on-surface": "#1a1c1a",
+                            "background": "#f9faf6",
+                            "surface-variant": "#e2e3e0",
+                            "secondary-fixed-dim": "#f2bb98",
+                            "inverse-surface": "#2f312f",
+                            "tertiary": "#401b1b",
+                            "on-error": "#ffffff",
+                            "on-primary": "#ffffff",
+                            "surface-container": "#eeeeeb",
+                            "on-tertiary-fixed-variant": "#673a39",
+                            "surface-tint": "#3f6653",
+                            "on-secondary": "#ffffff",
+                            "primary-fixed-dim": "#a5d0b9",
+                            "tertiary-fixed-dim": "#f5b7b4",
+                            "surface-container-highest": "#e2e3e0",
+                            "on-secondary-container": "#795035",
+                            "surface-bright": "#f9faf6",
+                            "surface-container-low": "#f3f4f1",
+                            "on-tertiary-container": "#d29895",
+                            "primary": "#012d1d",
+                            "outline-variant": "#c1c8c2",
+                            "primary-fixed": "#c1ecd4"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "unit": "8px",
+                            "gutter": "24px",
+                            "container-max": "1200px",
+                            "margin-desktop": "64px",
+                            "section-gap": "120px",
+                            "margin-mobile": "20px"
+                        },
+                        "fontFamily": {
+                            "label-caps": ["Inter"],
+                            "display-lg-mobile": ["Manrope"],
+                            "headline-md": ["Manrope"],
+                            "body-lg": ["Inter"],
+                            "headline-sm": ["Manrope"],
+                            "display-lg": ["Manrope"],
+                            "body-md": ["Inter"]
+                        },
+                        "fontSize": {
+                            "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                            "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                            "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                            "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                        }
+                    },
+                },
+            }
+        } catch (_e) {}
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px border-outline-variant;
+        }
+        .organic-frame {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            overflow: hidden;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        .pause:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-primary/10 shadow-sm">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-4">
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Forest Tech</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#research">Research</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#experience">Experience</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
+<a class="bg-primary text-on-primary px-6 py-2 rounded-xl hover:scale-95 transition-all" href="#contact">Contact</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center overflow-hidden pt-20">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1OLJIIL_fSBp6W2AIwTsuY95OYYIBafWNIE2-MomfRsXGKjZrwzKOwlwdOXpPGWLUjCcNWIsmmC9hBymnXL6bSuOocN1WPrf86gZP94ISuXmwDWGA131S1YpdrgK1mgtCwh9cfA31B7ZJiVt_RV0jYWbayWXfishOd2A_zzwMPL30jqfR1Tx5aKzi_PITuW9GOS0H9mtPzW0PlA7S1Z9WY5Pda-TZdaixhft47IHpdiRG4V6XPKP1'); background-size: cover; background-position: center;"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="reveal active">
+<span class="inline-block px-4 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps mb-6">Class of 2024</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
+                    Forest Resources Technology Graduate
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                    Passionate about sustainable forestry, biodiversity conservation, environmental protection, and natural resource management in the heart of West Africa.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-primary/20 transition-all" href="#research">View Portfolio</a>
+<button class="border-2 border-secondary text-secondary px-8 py-4 rounded-xl font-bold hover:bg-secondary/5 transition-all">Download CV</button>
+</div>
+</div>
+<div class="relative flex justify-center md:justify-end reveal active">
+<div class="organic-frame w-72 h-72 md:w-96 md:h-96 glass-card p-2 border-2 border-primary/10">
+<img alt="Professional portrait" class="w-full h-full object-cover organic-frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx3A-QSdoUfCIblWUgu2BTMvP3-hp8cGCPLI5zlJG5r13rlTjQvlr2AO7ynzSuhbIu0Pspx7MSQeiaPFbLyYwmrYVnW6R-8ceEszxSnGTHY4asbdxhqWXaX-Pl1RrFsUrtBytQ5YT4owvcVNGWq0oYCAHKoemoKyLWJKZc7NKIolSeBjILTMNiDCIvRcB955xaLd1AtxSw05Stj7d3EcvF39NTkm1zCvCGd0PEhppjv6yCt8nkAqp_THsnIYQikyrmGg"/>
+</div>
+<div class="absolute -bottom-6 -left-6 md:left-10 glass-card p-6 rounded-2xl animate-bounce shadow-xl">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1">forest</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Stats Section -->
+<section class="py-section-gap bg-surface-container-low border-y border-outline-variant/30">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div class="reveal">
+<h3 class="font-display-lg text-primary" data-target="11">0</h3>
+<p class="font-label-caps text-secondary">Research Projects</p>
+</div>
+<div class="reveal">
+<h3 class="font-display-lg text-primary" data-target="5">0</h3>
+<p class="font-label-caps text-secondary">Leadership Roles</p>
+</div>
+<div class="reveal">
+<h3 class="font-display-lg text-primary" data-target="8">0</h3>
+<p class="font-label-caps text-secondary">Certifications</p>
+</div>
+<div class="reveal">
+<h3 class="font-display-lg text-primary" data-target="4">0</h3>
+<p class="font-label-caps text-secondary">Years Experience</p>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap" id="about">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="reveal">
+<div class="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl">
+<img alt="Portrait at KNUST" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdyqB3NA0JLoOJVFO_OTZR9BNdpkIrpxDjD41EaGhtXNt7jXOZvvErQzGg5JRE8L0RJ7Vh5ad7XYY5lpmm_Nm97Q6CcOpwnco3cLURWvwqUfdhzeUtVcndpVyZUq8wugUztaGCpi_PAYc3--7XICcwMD720NNqyIWpdVDJHfpFf1C3O3w5w1vbMMAK_Q9uf8xvb9HU6Qn_1u10vXPWVTBNj1AcKZCTouYbH-ZyM_wQbOcmpfOineuILPhuOQ1Q-XFHg"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+</div>
+<div class="reveal">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 underline decoration-secondary decoration-4 underline-offset-8">Dedicated to Conservation</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                    With a solid foundation from the Kwame Nkrumah University of Science and Technology (KNUST), my mission is to bridge the gap between traditional forestry practices and modern technological solutions.
+                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                    I specialize in evaluating forest health through GIS mapping, advocating for biodiversity, and developing sustainable biomass energy models. My professional journey is rooted in the belief that technology can and must be the primary tool for environmental protection.
+                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-semibold">Sustainable Management</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-semibold">GIS Analysis</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-semibold">Wildlife Advocacy</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-semibold">Field Research</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Research & Projects -->
+<section class="py-section-gap bg-surface-container" id="research">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16 reveal">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Research &amp; Technical Projects</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Exploring the frontiers of environmental science through rigorous academic study and practical field application.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Project 1 -->
+<div class="md:col-span-7 glass-card p-8 rounded-3xl flex flex-col justify-between group cursor-pointer hover:-translate-y-2 transition-all reveal shadow-md">
+<div>
+<div class="w-16 h-16 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary-container mb-6">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-4">Optimization of Mushroom Cultivation</h3>
+<p class="text-on-surface-variant mb-6">A deep dive into sustainable substrate utilization for Pleurotus ostreatus, focusing on circular economy principles in forestry byproducts.</p>
+</div>
+<img alt="Oyster mushrooms" class="w-full h-48 object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2eav2ruN0sLXTA5e09VKG_uEcxBBQ6iYsvlcKpit6PrFmXBAUOy2g0Msdmopo2GCMk7o-q2eF7mVngzXTR9_Sgt5kFmTL90_Nx-7BkiaBwMBi6svDleq0XFgENcWHZorCIpzG2PSFW44hVgeyXsHB-EOpgO8Pcf5154yWOO2oDOE9lq8u4Sie0rq6zuX2b8-kZ__WbpVu8KgNr-gzXS9CueTXogctOXFv-eMq3x_O3qCiJQUbAy-r"/>
+</div>
+<!-- Project 2 -->
+<div class="md:col-span-5 bg-secondary-container text-on-secondary-container p-8 rounded-3xl flex flex-col reveal shadow-md">
+<div class="mb-auto">
+<div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h3 class="font-headline-sm mb-4">Biomass Energy Analysis</h3>
+<p class="opacity-90">Quantifying the energy potential of forest residuals for rural community electrification in the Ashanti Region.</p>
+</div>
+<div class="mt-8 flex justify-end">
+<span class="material-symbols-outlined text-6xl opacity-30">eco</span>
+</div>
+</div>
+<!-- Small Grid Items -->
+<div class="md:col-span-4 glass-card p-6 rounded-3xl reveal border border-primary/5">
+<h4 class="font-bold text-primary mb-2">Satellite Monitoring</h4>
+<p class="text-sm text-on-surface-variant">Using Sentinel-2 data to track canopy loss in protected reserves.</p>
+</div>
+<div class="md:col-span-4 glass-card p-6 rounded-3xl reveal border border-primary/5">
+<h4 class="font-bold text-primary mb-2">Soil Ph Analysis</h4>
+<p class="text-sm text-on-surface-variant">Comparative study of nutrient cycles in monoculture vs polyculture plots.</p>
+</div>
+<div class="md:col-span-4 glass-card p-6 rounded-3xl reveal border border-primary/5">
+<h4 class="font-bold text-primary mb-2">GIS Mapping</h4>
+<p class="text-sm text-on-surface-variant">Infrastructure planning for sustainable ecotourism trails.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Timeline -->
+<section class="py-section-gap" id="experience">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md text-primary text-center mb-16 reveal">Educational Journey</h2>
+<div class="relative max-w-3xl mx-auto space-y-12">
+<div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/10"></div>
+<!-- KNUST -->
+<div class="relative flex flex-col md:flex-row items-center gap-8 reveal">
+<div class="md:w-1/2 md:text-right">
+<div class="glass-card p-6 rounded-3xl border border-primary/10 shadow-sm inline-block">
+<span class="text-secondary font-bold">2020 - 2024</span>
+<h3 class="font-headline-sm text-primary mt-1">BSc. Forest Resources Technology</h3>
+<p class="text-on-surface-variant text-sm">KNUST, Kumasi</p>
+</div>
+</div>
+<div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed"></div>
+<div class="md:w-1/2"></div>
+</div>
+<!-- Anglican -->
+<div class="relative flex flex-col md:flex-row items-center gap-8 reveal">
+<div class="md:w-1/2"></div>
+<div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-fixed"></div>
+<div class="md:w-1/2 md:text-left">
+<div class="glass-card p-6 rounded-3xl border border-primary/10 shadow-sm inline-block pl-10 md:pl-6">
+<span class="text-secondary font-bold">2016 - 2019</span>
+<h3 class="font-headline-sm text-primary mt-1">WASSCE</h3>
+<p class="text-on-surface-variant text-sm">Anglican Senior High School</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- NEW: Technical Expertise Section -->
+<section class="py-section-gap bg-surface-container-high" id="skills">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md text-primary text-center mb-16 reveal">Technical Expertise</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter reveal">
+<div class="flex flex-col items-center">
+<div class="relative w-32 h-32 flex items-center justify-center mb-4">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/30" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="36.4" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-bold text-xl text-primary">90%</span>
+</div>
+<span class="font-semibold text-on-surface">ArcMap / QGIS</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="relative w-32 h-32 flex items-center justify-center mb-4">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/30" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="91.1" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-bold text-xl text-primary">75%</span>
+</div>
+<span class="font-semibold text-on-surface">R Studio</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="relative w-32 h-32 flex items-center justify-center mb-4">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/30" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="54.6" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-bold text-xl text-primary">85%</span>
+</div>
+<span class="font-semibold text-on-surface">Advanced Excel</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="relative w-32 h-32 flex items-center justify-center mb-4">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/30" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="72.8" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-bold text-xl text-primary">80%</span>
+</div>
+<span class="font-semibold text-on-surface">Field Inventory</span>
+</div>
+</div>
+</div>
+</section>
+<!-- NEW: Field Perspectives Section -->
+<section class="py-section-gap overflow-hidden bg-background">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary reveal">Field Perspectives</h2>
+<p class="text-on-surface-variant mt-2 reveal">A visual journey through my professional fieldwork.</p>
+</div>
+</div>
+<div class="flex gap-4 animate-scroll whitespace-nowrap px-4 pause">
+<div class="w-80 h-96 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg border border-primary/5">
+<img alt="Aerial forest view" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgMmsDKRwiv8LKMqiH-FHgz5_Ja9qlwqyq5ATfpiUQYSgAvFR81xAR0wWeNuPsHeX7E4Pzqv6dSeEC7nQze8iaWZKiF58XHxAf0md_SYY-wlGKbm-fT8TStssAgINdOB1nDx6ylYwy5sxV_CqA62oeN82hux6fSAt2p47vASDiLMDWO_pdi5A4It-B-pQe60zafejsbjBmT5fYiy_yYbTIng8XR8zyiC7_R2kUu-koaDbuop4m2pWu"/>
+</div>
+<div class="w-80 h-96 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg border border-primary/5">
+<img alt="Bird biodiversity" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Al3yMCkSexU1CpT6yNhwX6ZTc6-955Qz5AslfbhrtAcyGjX-_FGn8a2yjPl_1gFPggqv3vF8fp7ojGG5Zc00mpEhua-VYjNGUlonlKDK99URDy13Jzzgaq5pK8Fi_LEubge1-48nruFMXxTe4SKzr0c0daIcB-hXlwcQTF1tDSwHORTz-PI06DTxH5DosanUTY8paRi_SxlHgkb9jm8K32MMtflUB4CcUsxSYuPgcfugENnq3dY0"/>
+</div>
+<div class="w-80 h-96 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg border border-primary/5">
+<img alt="Field inventory" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWt7Vuibs700a3To8644OnDviui0XihiMmojo0fLVx5TMmZFTJ4pqMrQLvP-6_y0QuVCBoRNWlLyr2peaLiU4JqqBKS13aQWthKtyFicsKCzSmmQWMuZm0T-u51MXfjwVBUVtgw8CDuyWaZO9IaiWtDqtVLRSWq2CgfW94anR0PGq0NnJrGrj2nMCnXXUif7Jy46OwlhAYXVt4ZclkvAQTMiMxAuYkTQYKOmpncVMTOwPBoKrZFfH"/>
+</div>
+<div class="w-80 h-96 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg border border-primary/5">
+<img alt="Community planting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgYWXHUhIuJ6wc5S06cIhxQGCv9bkGb5ciOt_--fxjfRoxPZJ2M1J5c_S34-dr8PlqPyistavPJXfBMbRMbLe4e_Vfr3wiKz_EAortDJg5HR2rQbAXa72UjSDiIVp1k3_-u35plxVFR4X1dqD2vH2leMTeTp_5dv6Zipq08LwHtvSH7kuZIk17gW_5VkA3g-P5sjPhlp65cx4LQVFIp9pDWw1PTjKQmtKG761iMGM6cGvNuYNQ-VBR"/>
+</div>
+<!-- Repeat for seamless scroll -->
+<div class="w-80 h-96 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg border border-primary/5">
+<img alt="Aerial forest view" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgMmsDKRwiv8LKMqiH-FHgz5_Ja9qlwqyq5ATfpiUQYSgAvFR81xAR0wWeNuPsHeX7E4Pzqv6dSeEC7nQze8iaWZKiF58XHxAf0md_SYY-wlGKbm-fT8TStssAgINdOB1nDx6ylYwy5sxV_CqA62oeN82hux6fSAt2p47vASDiLMDWO_pdi5A4It-B-pQe60zafejsbjBmT5fYiy_yYbTIng8XR8zyiC7_R2kUu-koaDbuop4m2pWu"/>
+</div>
+<div class="w-80 h-96 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg border border-primary/5">
+<img alt="Bird biodiversity" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Al3yMCkSexU1CpT6yNhwX6ZTc6-955Qz5AslfbhrtAcyGjX-_FGn8a2yjPl_1gFPggqv3vF8fp7ojGG5Zc00mpEhua-VYjNGUlonlKDK99URDy13Jzzgaq5pK8Fi_LEubge1-48nruFMXxTe4SKzr0c0daIcB-hXlwcQTF1tDSwHORTz-PI06DTxH5DosanUTY8paRi_SxlHgkb9jm8K32MMtflUB4CcUsxSYuPgcfugENnq3dY0"/>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap bg-primary text-on-primary" id="contact">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="reveal">
+<h2 class="font-display-lg-mobile md:font-display-lg mb-8">Let's Protect the Future Together.</h2>
+<p class="text-body-lg opacity-80 mb-12">I am currently open to research opportunities, forestry consulting, and environmental conservation roles globally.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<span class="text-lg">contact@forest-tech.gh</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<span class="text-lg">Kumasi, Ghana</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-10 rounded-3xl bg-white/5 border border-white/10 reveal">
+<form class="space-y-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-xs opacity-60">Your Name</label>
+<input class="w-full bg-transparent border-b border-white/30 focus:border-white focus:ring-0 transition-colors py-2 text-white" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-xs opacity-60">Email Address</label>
+<input class="w-full bg-transparent border-b border-white/30 focus:border-white focus:ring-0 transition-colors py-2 text-white" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-xs opacity-60">Subject</label>
+<select class="w-full bg-transparent border-b border-white/30 focus:border-white focus:ring-0 transition-colors py-2 text-white appearance-none">
+<option class="bg-primary">Research Collaboration</option>
+<option class="bg-primary">Job Opportunity</option>
+<option class="bg-primary">Consulting Request</option>
+<option class="bg-primary">Other</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-xs opacity-60">Message</label>
+<textarea class="w-full bg-transparent border-b border-white/30 focus:border-white focus:ring-0 transition-colors py-2 text-white resize-none" placeholder="How can we work together?" rows="4"></textarea>
+</div>
+<button class="w-full bg-white text-primary py-4 rounded-xl font-bold hover:scale-[1.02] active:scale-95 transition-all">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-16 bg-surface-container-low border-t border-outline-variant/30">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter items-center">
+<span class="font-headline-sm text-headline-sm text-primary">Forest Tech</span>
+<div class="flex gap-8 justify-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#research">Research</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+<p class="md:text-right font-body-md text-secondary opacity-80">© 2024 Forest Resources Technology. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Intersection Observer for Scroll Reveals
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Stats Counter Animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    let count = 0;
+                    const duration = 2000;
+                    const startTime = performance.now();
+                    
+                    const updateCount = (currentTime) => {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easedProgress = 1 - Math.pow(1 - progress, 3);
+                        
+                        entry.target.innerText = Math.floor(easedProgress * target);
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            entry.target.innerText = target;
+                        }
+                    };
+                    requestAnimationFrame(updateCount);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-target]').forEach(el => statsObserver.observe(el));
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>
